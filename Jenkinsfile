@@ -72,6 +72,8 @@ pipeline {
                   )
             }
         }
+        // Temporarily disable Destroy functionality
+        /*
         stage('Terraform Destroy'){
             steps{
                   sh(
@@ -81,5 +83,6 @@ pipeline {
                   )
             }
         }
+        */
     }
 }
