@@ -55,7 +55,7 @@ resource "aws_security_group" "elb" {
 # Our default security group to access
 # the instances over SSH and HTTP
 resource "aws_security_group" "default" {
-  name        = "terraform_d4devops"
+  name        = "terraform_d4devops_1"
   description = "Used in the terraform"
   vpc_id      = aws_vpc.main.id
 
