@@ -64,7 +64,7 @@ pipeline {
             }
         }
         stage("Terraform Tests"){
-             parallel (
+             parallel {
                  steps {
                    "InSpec Verifcation" {
                    def exists = fileExists 'test/verify'
@@ -84,7 +84,7 @@ pipeline {
           }
         }
       }
-    )
+    }
   }
         stage('Terra destroy'){
             steps{
