@@ -65,6 +65,7 @@ pipeline {
         }
         stage("Terraform Tests"){
              parallel {
+                 stage('inspec'){
                  steps {
                    "InSpec Verifcation" {
                    def exists = fileExists 'test/verify'
@@ -75,7 +76,10 @@ pipeline {
             echo "No InSpec Verification Tests to Run."
           }
         }
-                 "Behave Functional Testing" {
+     }
+    }            
+                stage('behave'){
+                "Behave"{
                  def exists = fileExists 'test/features'
                  if (exists) {
                  sh "echo behave exec here"
