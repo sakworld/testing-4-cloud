@@ -63,15 +63,29 @@ pipeline {
                   )
             }
         }
-        stage('Inspec test execution'){
-            steps{
-                  sh(
-                      '''
-                      sh 'scripts/inspec-test.sh'
-                      '''  
-                  )
-            }
+        stage("Terraform Tests"){
+             parallel (
+                 steps {
+                   "InSpec Verifcation" {
+                   def exists = fileExists 'test/verify'
+                   if (exists) {
+                   sh "echo terraform output here"
+                   sh "echo inspec exec here"
+          } else {
+            echo "No InSpec Verification Tests to Run."
+          }
         }
+                 "Behave Functional Testing" {
+                 def exists = fileExists 'test/features'
+                 if (exists) {
+                 sh "echo behave exec here"
+                 } else {
+            echo "No Behave Functional Tests to Run."
+          }
+        }
+      }
+    )
+  }
         stage('Terra destroy'){
             steps{
                   sh(
