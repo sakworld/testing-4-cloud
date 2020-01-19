@@ -66,7 +66,7 @@ pipeline {
         stage('Inspec') {
             steps {
                 script {
-                    def exists = fileExists 'test/verify'
+                    def exists = fileExists 'aws-terraform/test/verify'
                     if (exists) {
                         echo "yes"
                         } 
