@@ -4,6 +4,7 @@ pipeline {
     parameters{
         string(name:'AWS_ACCESS_KEY', defaultValue: '', description: 'AWS_ACCESS_KEY')
         string(name:'AWS_SECRET_ACCESS_KEY', defaultValue: '', description: 'AWS_SECRET_ACCESS_KEY')
+        string(name:'AWS_REGION', defaultValue: '', description: 'Region')
     }
     stages {
         stage('Terraform Install'){
