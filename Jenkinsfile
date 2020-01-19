@@ -72,7 +72,7 @@ pipeline {
                         } 
                         else 
                         { 
-                            echo "No" 
+                            echo "test/veriry directory not found" 
                         }
                     }
                 }
