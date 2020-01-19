@@ -65,10 +65,8 @@ pipeline {
         }
         stage('Inspec') {
             steps {
-                touch 'file'
-                
                 script {
-                    def exists = fileExists 'file'
+                    def exists = fileExists 'test/verify'
                     if (exists) {
                         echo "yes"
                         } 
