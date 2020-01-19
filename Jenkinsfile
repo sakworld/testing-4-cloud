@@ -63,22 +63,22 @@ pipeline {
                   )
             }
         }
-        stage("Terraform Tests"){
-                 steps {
-                   "InSpec Verifcation" {
-                   def exists = fileExists 'test/verify'
-                   if (exists) {
-                   sh "echo terraform output here"
-                   sh "echo inspec exec here"
-          } else {
-            echo "No InSpec Verification Tests to Run."
-          }
-        }
-     }
-    }            
-
-
-  
+        stage('Inspec') {
+            steps {
+                touch 'file'
+                
+                script {
+                    def exists = fileExists 'file'
+                    if (exists) {
+                        echo "yes"
+                        } 
+                        else 
+                        { 
+                            echo "No" 
+                        }
+                    }
+                }
+            }
         stage('Terra destroy'){
             steps{
                   sh(
