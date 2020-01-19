@@ -70,7 +70,10 @@ pipeline {
                 script {
                     def exists = fileExists 'aws-terraform/test/verify'
                     if (exists) {
-                        sh 'scripts/inspec-test.sh'
+                        '''
+                        sh ('scripts/inspec-test.sh'
+                        '''
+                        )
                         } 
                         else 
                         { 
