@@ -70,7 +70,7 @@ pipeline {
                 script {
                     def exists = fileExists 'aws-terraform/test/verify'
                     if (exists) {
-                        echo "inspec exec test/verify -t aws:// --chef-license accept-silent"
+                        sh 'scripts/inspec-test.sh'
                         } 
                         else 
                         { 
